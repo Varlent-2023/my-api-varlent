@@ -6,20 +6,20 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
-use App\Models\Book;
+use App\Models\Bakery;
 use OpenApi\Annotations as OA;
 use Illuminate\Support\Facades\Validator;
 
 /**
- * Class BookController
+ * Class BakeryController
  * @author Varlent <varlent.422023028@civitas.ukrida.ac.id>
  */
-class BookController extends Controller
+class BakeryController extends Controller
 {
     /** 
      * @OA\Get(
-     *     path="/api/book",
-     *     tags={"book"},
+     *     path="/api/bakery",
+     *     tags={"bakery"},
      *     summary="Display a listing of the items",
      *     operationId="index",
      *     @OA\Response(
@@ -86,10 +86,10 @@ class BookController extends Controller
             $page                 = $data['filter']['_page']  = (@$data['filter']['_page'] ? intval($data['filter']['_page']) : 1);
             $limit                = $data['filter']['_limit'] = (@$data['filter']['_limit'] ? intval($data['filter']['_limit']) : 1000);
             $offset               = ($page?($page-1)*$limit:0);
-            $data['products']     = Book::whereRaw('1 = 1');
+            $data['products']     = Bakery::whereRaw('1 = 1');
             
             if($request->get('_search')){
-                $data['products'] = $data['products']->whereRaw('(LOWER(title) LIKE "%'.strtolower($request->get('_search')).'%")');
+                $data['products'] = $data['products']->whereRaw('(LOWER(product_name) LIKE "%'.strtolower($request->get('_search')).'%")');
             }
             if($request->get('_type')){
                 $data['products'] = $data['products']->whereRaw('LOWER(type) = "'.strtolower($request->get('_type')).'"');
@@ -97,17 +97,17 @@ class BookController extends Controller
             if($request->get('_sort_by')){
             switch ($request->get('_sort_by')) {
                 default:
-                case 'latest_publication':
-                $data['products'] = $data['products']->orderBy('publication_year','DESC');
-                break;
+                // case 'latest_baked':
+                // $data['products'] = $data['products']->orderBy('bake_date','DESC');
+                // break;
                 case 'latest_added':
                 $data['products'] = $data['products']->orderBy('created_at','DESC');
                 break;
                 case 'name_asc':
-                $data['products'] = $data['products']->orderBy('title','ASC');
+                $data['products'] = $data['products']->orderBy('product_name','ASC');
                 break;
                 case 'name_desc':
-                $data['products'] = $data['products']->orderBy('title','DESC');
+                $data['products'] = $data['products']->orderBy('product_name','DESC');
                 break;
                 case 'price_asc':
                 $data['products'] = $data['products']->orderBy('price','ASC');
@@ -133,8 +133,8 @@ class BookController extends Controller
 
     /**
      * @OA\Post(
-     *      path="/api/book",
-     *      tags={"book"},
+     *      path="/api/bakery",
+     *      tags={"bakery"},
      *      summary="Store a newly created item",
      *      operationId="store",
      *      @OA\Response(
@@ -151,15 +151,13 @@ class BookController extends Controller
      *          required=true,
      *          description="Request body description",
      *          @OA\JsonContent(
-     *              ref="#/components/schemas/Book",
+     *              ref="#/components/schemas/Bakery",
      *              example={
-     *                  "title": "Eating Clean",
-     *                  "author": "Inge Tumiwa-Bachrens",
-     *                  "publisher": "Kawan Pustaka",
-     *                  "publication_year": "2016",
-     *                  "cover": "https://images-na.ssl-images-amazon.com/images/5/compressed.photo.goodreads.com/books/14821780551/33511107.jpg",
-     *                  "description": "Menjadi sehat adalah impian semua orang. Makanan yang selama ini kita pikir sehat ternyata belum tentu 'sehat' bagi tubuh kita.",
-     *                  "price": 85000
+     *                  "product_name": "Croissant",
+     *                  "category": "Pastry",
+     *                  "cover": "https://imgs.search.brave.com/AMP2KygF7XMhNX1LKASc0nb654xvD9laxs07HNBzBzk/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNzE5/MTY0NzYvcGhvdG8v/Y3JvaXNzYW50Lmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1W/Nnd4WHRxQVp6Uk5n/OHV6N0pDM1NkYmkw/SnFtbjQ1bms0VzE5/Q0VtbVA0PQ",
+     *                  "description": "Croissant adalah sejenis roti berlapis-lapis berbentuk bulan sabit yang berasal dari Prancis. Terbuat dari adonan berlapis yang dicampur dengan mentega, croissant memiliki tekstur yang renyah di luar dan lembut di dalam.",
+     *                  "price": 45000
      *              }
      *          )
      *      )
@@ -169,17 +167,17 @@ class BookController extends Controller
     {
         try {
             $validator = Validator::make($request->all(), [
-                'title' => 'required|unique:books',
-                'author' => 'required|max:100',
+                'product_name' => 'required|unique:bakeries',
+                'category' => 'required|max:100',
             ]);
 
             if ($validator->fails()) {
                 throw new HttpException(400, $validator->messages()->first());
             }
 
-            $book = new Book;
-            $book->fill($request->all())->save();
-            return $book;
+            $bakery = new Bakery;
+            $bakery->fill($request->all())->save();
+            return $bakery;
 
         } catch (\Exception $exception) {
             throw new HttpException(400, "Invalid data: {$exception->getMessage()}");
@@ -188,8 +186,8 @@ class BookController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/api/books/{id}",
-     *      tags={"book"},
+     *      path="/api/bakeries/{id}",
+     *      tags={"bakeries"},
      *      summary="Display the specified item",
      *      operationId="show",
      *      @OA\Response(
@@ -221,17 +219,17 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        $book = Book::find($id);
-        if (!$book) {
+        $bakery = Bakery::find($id);
+        if (!$bakery) {
             throw new HttpException(404, "Item not found");
         }
-        return $book;
+        return $bakery;
     }
 
     /**
      * @OA\Put(
-     *      path="/api/books/{id}",
-     *      tags={"book"},
+     *      path="/api/bakeries/{id}",
+     *      tags={"bakery"},
      *      summary="Update the specified item",
      *      operationId="update",
      *      @OA\Response(
@@ -263,15 +261,13 @@ class BookController extends Controller
      *          required=true,
      *          description="Request body description",
      *          @OA\JsonContent(
-     *              ref="#/components/schemas/Book",
+     *              ref="#/components/schemas/Bakery",
      *              example={
-     *                  "title": "Eating Clean",
-     *                  "author": "Inge Tumiwa-Bachrens",
-     *                  "publisher": "Kawan Pustaka",
-     *                  "publication_year": "2016",
-     *                  "cover": "https://images-na.ssl-images-amazon.com/images/5/compressed.photo.goodreads.com/books/14821780551/33511107.jpg",
-     *                  "description": "Menjadi sehat adalah impian semua orang. Makanan yang selama ini kita pikir sehat ternyata belum tentu sehat bagi tubuh kita.",
-     *                  "price": 85000
+     *                  "product_name": "Croissant",
+     *                  "category": "Pastry",
+     *                  "cover": "https://imgs.search.brave.com/AMP2KygF7XMhNX1LKASc0nb654xvD9laxs07HNBzBzk/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNzE5/MTY0NzYvcGhvdG8v/Y3JvaXNzYW50Lmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1W/Nnd4WHRxQVp6Uk5n/OHV6N0pDM1NkYmkw/SnFtbjQ1bms0VzE5/Q0VtbVA0PQ",
+     *                  "description": "Croissant adalah sejenis roti berlapis-lapis berbentuk bulan sabit yang berasal dari Prancis. Terbuat dari adonan berlapis yang dicampur dengan mentega, croissant memiliki tekstur yang renyah di luar dan lembut di dalam.",
+     *                  "price": 45000
      *              }
      *          )
      *      )
@@ -279,22 +275,22 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $book = Book::find($id);
-        if (!$book) {
+        $bakery = Bakery::find($id);
+        if (!$bakery) {
             throw new HttpException(404, "Item not found");
         }
 
         try {
             $validator = Validator::make($request->all(), [
-                'title' => 'required|unique:books',
-                'author' => 'required|max:100',
+                'product_name' => 'required|unique:bakeries',
+                'category' => 'required|max:100',
             ]);
 
             if ($validator->fails()) {
                 throw new HttpException(400, $validator->messages()->first());
             }
 
-            $book->fill($request->all())->save();
+            $bakery->fill($request->all())->save();
             return response()->json(['message' => 'Updated successfully'], 200);
 
         } catch (\Exception $exception) {
@@ -304,8 +300,8 @@ class BookController extends Controller
 
     /**
      * @OA\Delete(
-     *      path="/api/books/{id}",
-     *      tags={"book"},
+     *      path="/api/bakeries/{id}",
+     *      tags={"bakery"},
      *      summary="Remove the specified item",
      *      operationId="destroy",
      *      @OA\Response(
@@ -337,13 +333,13 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        $book = Book::findOrFail($id);
-        if (!$book) {
+        $bakery = Bakery::findOrFail($id);
+        if (!$bakery) {
             throw new HttpException(404, "Item not found");
         }
 
         try {
-            $book->delete();
+            $bakery->delete();
             return response()->json(['message' => 'Deleted successfully'], 200);
 
         } catch (\Exception $exception) {

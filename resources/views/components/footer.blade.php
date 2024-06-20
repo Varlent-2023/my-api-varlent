@@ -8,7 +8,6 @@
                     <h6 class="footer-widget__title mb-20">Customer Service</h6>
                     <ul class="footer-widget__list">
                         <li><a href="#" class="hover-style-link">Help & Contact Us</a></li>
-                        <li><a href="#" class="hover-style-link">Returns & Refunds</a></li>
                         <li><a href="#" class="hover-style-link">Online Stores</a></li>
                         <li><a href="#" class="hover-style-link">Terms & Conditions</a></li>
                     </ul>
@@ -59,12 +58,12 @@
                         <ul class="list footer-social-networks ">
                             <li class="item">
                                 <a href="https://twitter.com" target="_blank" aria-label="Twitter">
-                                    <i class="social social_facebook"></i>
+                                    <i class="social social_twitter"></i>
                                 </a>
                             </li>
                             <li class="item">
                                 <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-                                    <i class="social social_twitter"></i>
+                                    <i class="social social_facebook"></i>
                                 </a>
                             </li>
                             <li class="item">

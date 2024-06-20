@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-sacle=1">
         <meta name="csrf-token" content="{{csrf_token()}}">
         <meta name="description" content="Windows to the world right on your doorstep!">
-        <meta name="keywords" content="ecommerce, book">
+        <meta name="keywords" content="ecommerce, bakery">
         <meta name="author" content="422023028 - Varlent Alberta Gunawan">
 
         <title>@yield('title') | 422023028 - Varlent Alberta Gunawan</title>

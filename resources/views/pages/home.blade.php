@@ -19,18 +19,14 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="about-us-content_6 text-center">
-                        <h2>W.T.T.W.&nbsp;&nbsp;Store</h2>
+                        <h2>Rotilicius&nbsp;&nbsp;Store</h2>
                         <p>
                             <small>
-                            Whether you're searching for the latest bestsellers, timeless classics, or hidden gems, our carefully 
-                            curated collection has something for everyone. Our passionate staff is dedicated to helping you find the perfect read,
-                            and our cozy, welcoming environment invites you to linger
-                            and explore. Join our community of book lovers and let us help you.
-                            Visit us today and experience the joy of getting lost in a great book &#10084; 
+                                Looking for the perfect loaf or pastry? Our bakery offers a diverse selection of freshly baked goods, from classic baguettes to unique artisanal breads. Our skilled bakers are passionate about quality, ensuring every bite is a delight. With a warm and inviting atmosphere, you can relax and enjoy your treats on-site. Become part of our community and let us bring the joy of fresh, delicious baked goods to your table. Visit us today and discover the difference our dedication to baking makes. &#10084; 
                             </small>
                         </p>
-                        <p class="mt-5">Find your window to the world! Or, even,
-                            <span class="text-color-primary">unlock hidden worlds, one page at a time!</span>
+                        <p class="mt-5">Discover your gateway to flavor! Enjoy the best in baked goods, from fresh breads to delightful pastries, all crafted with passion.
+                            <span class="text-color-primary">Visit us and savor every bite!</span>
                         </p>
                     </div>
                 </div>
@@ -44,9 +40,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="banner-video-box">
-                        <img src="https://www.magd.ox.ac.uk/wp-content/uploads/2022/07/3027-052-2000x1000.jpg" alt="">
+                        <img src="https://imgs.search.brave.com/FyR3q_HwE6-HYVZ0NdDZNNMDySDZ78TlcPoPLnUEe1k/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9zbGljZS1icmVh/ZC1ncmFpbnMtd2hl/YXQtZGFyay13b29k/ZW4tYmFja18xMDYx/MTUwLTg2NzQuanBn/P3NpemU9NjI2JmV4/dD1qcGc" alt="">
                         <div class="video-icon">
-                            <a href="https://youtu.be/Na5KPnx0uS8?si=PPoJfum8xG-Jt8h9" class="popup-youtube">
+                            <a href="https://www.youtube.com/watch?v=_7Mz6apw9Os&pp=ygUYYnJlYWQgc3RvcmUgc3RvY2sgdmlkZW8g" class="popup-youtube">
                                 <i class="linear-ic-play"></i>
                             </a>
                         </div>

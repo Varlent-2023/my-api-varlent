@@ -143,10 +143,10 @@
                 ]
             }
         },
-        "/api/book": {
+        "/api/bakery": {
             "get": {
                 "tags": [
-                    "book"
+                    "bakery"
                 ],
                 "summary": "Display a listing of the items",
                 "operationId": "index",
@@ -163,7 +163,7 @@
             },
             "post": {
                 "tags": [
-                    "book"
+                    "bakery"
                 ],
                 "summary": "Store a newly created item",
                 "operationId": "store",
@@ -173,17 +173,15 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Book"
+                                "$ref": "#/components/schemas/Bakery"
                             },
                             "example": {
-                                "id": 1,
-                                "title": "Eating Clean",
-                                "author": "Inge Tumiwa-Bachrens",
-                                "publisher": "Kawan Pustaka",
-                                "publication_year": "2016",
-                                "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1482170055i/33511107.jpg",
-                                "description": "Menjadi sehat adalah impian semua orang. Makanan yang selama ini kita pikir sehat ternyata belum tentu 'sehat' bagi tubuh kita.",
-                                "price": 85000
+                                "id": 9,
+                                "product_name": "Tortilla",
+                                "category": "Special Bread",
+                                "images": "https://opnxng.com/image_proxy?url=https%3A%2F%2Fencrypted-tbn0.gstatic.com%2Fimages%3Fq%3Dtbn%3AANd9GcQUVluCyaueSLOArVT7-ShbjC8tcKFY3p_ldxxWEWTDV_xILneQ%26s&h=85e126884e25731deec91aef680861b77d266e5176605d276d8fa89baab92289",
+                                "description": "Tortilla adalah jenis roti pipih yang berasal dari Meksiko.",
+                                "price": 30000
                             }
                         }
                     }
@@ -214,10 +212,10 @@
                 ]
             }
         },
-        "/api/book/{id}": {
+        "/api/bakery/{id}": {
             "get": {
                 "tags": [
-                    "book"
+                    "bakery"
                 ],
                 "summary": "Display the specified item",
                 "operationId": "show",
@@ -262,7 +260,7 @@
             },
             "put": {
                 "tags": [
-                    "book"
+                    "bakery"
                 ],
                 "summary": "Update the specified item",
                 "operationId": "update",
@@ -284,17 +282,15 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Book"
+                                "$ref": "#/components/schemas/Bakery"
                             },
                             "example": {
-                                "id": 1,
-                                "title": "Eating Clean",
-                                "author": "Inge Tumiwa-Bachrens",
-                                "publisher": "Kawan Pustaka",
-                                "publication_year": "2016",
-                                "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1482170055i/33511107.jpg",
-                                "description": "Menjadi sehat adalah impian semua orang. Makanan yang selama ini kita pikir sehat ternyata belum tentu 'sehat' bagi tubuh kita.",
-                                "price": 85000
+                                "id": 9,
+                                "product_name": "Baguette",
+                                "category": "Special Bread",
+                                "images": "https://opnxng.com/image_proxy?url=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.T0yYhySdBLDbMjEW66a1BQHaEK%26pid%3D15.1&h=1229f74bbda2396704d1c5ef9f59c55069276596f3032f7453fbe86a48d9b730",
+                                "description": "Baguette adalah roti panjang dan tipis yang berasal dari Prancis.",
+                                "price": 15000
                             }
                         }
                     }
@@ -334,7 +330,7 @@
             },
             "delete": {
                 "tags": [
-                    "book"
+                    "bakery"
                 ],
                 "summary": "Remove the specified item",
                 "operationId": "destroy",
@@ -387,15 +383,15 @@
     },
     "components": {
         "schemas": {
-            "Book": {
-                "title": "Book model",
-                "description": "Book model",
+            "Bakery": {
+                "title": "Bakery model",
+                "description": "Bakery model",
                 "required": [
-                    "title",
-                    "author"
+                    "id",
+                    "product_name"
                 ],
                 "xml": {
-                    "name": "Book"
+                    "name": "Bakery"
                 }
             },
             "User": {

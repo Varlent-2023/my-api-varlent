@@ -62,23 +62,12 @@
                     <div class="product-filter">
                         <h6 class="mb-20">Tags</h6>
                         <div class="blog-tagc loud">
-                            <a href="#" class="selected">Book</a><br>
-                            <a href="#">EBook</a><br>
-                            <a href="#">Best Seller</a><br>
-                            <a href="#">Fiction</a><br>
-                            <a href="#">Education</a><br>
-                            <a href="#">Literature</a><br>
-                            <a href="#">Classics</a><br>
-                            <a href="#">Real Event</a><br>
-                            <a href="#">Young Adult</a><br>
-                            <a href="#">Religion</a><br>
-                            <a href="#">Health</a><br>
-                            <a href="#">Comic</a><br>
-                            <a href="#">Horror</a><br>
-                            <a href="#">Filmed</a><br>
-                            <a href="#">Encyclopedia</a><br>
-                            <a href="#">In English</a><br>
-                            <a href="#">In Indonesia</a><br>
+                            <a href="#" class="selected">Healty Bread</a><br>
+                            <a href="#">Daily Bread</a><br>
+                            <a href="#">Special Bread</a><br>
+                            <a href="#">Pastry</a><br>
+                            <a href="#">Fermented Bread</a><br>
+                            <a href="#">Sweet Bread</a><br>
                         </div>
                     </div>
                 </div>

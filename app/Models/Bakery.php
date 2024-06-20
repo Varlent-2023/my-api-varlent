@@ -8,36 +8,39 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\User;
 
 /**
- * Class Book.
+ * Class Bakery.
  * @author Varlent <varlent.422023028@civitas.ukrida.ac.id>
  * 
  * @OA\Schema(
- *     description="Book model",
- *     title="Book model",
- *     required={"title", "author"},
+ *     description="Bread model",
+ *     title="Bread model",
+ *     required={"id", "product_name"},
  *     @OA\Xml(
- *         name="Book"
+ *         name="Bread"
  *     )
  * )
  */ 
 
-class Book extends Model
+class Bakery extends Model
 {
     // use HasFactory;
     use SoftDeletes;
-    protected $table = 'books';
+    protected $table = 'bakeries';
     protected $fillable = [
-        'title',
-        'author',
-        'publisher',
-        'publication_year',
-        'cover',
+        'id',
+        'product_name',
+        'category',
+        'availability',
+        'expiration_date',
+        'images',        
         'description',
-        'price',
+        'price',           
         'created_at',
         'created_by',
         'updated_at',
         'updated_by',
+        'deleted_at',
+        'deleted_by'
     ];
 
     public function data_adder(){
