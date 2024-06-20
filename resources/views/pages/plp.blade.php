@@ -8,9 +8,9 @@
 
         <div class="row">
             <div class="col-lg-3 col-md-3 order-md-1 order-2 small-mt__40">
-                <div class="shop-widget widget-shop-publishers mt-3">
+                {{-- <div class="shop-widget widget-shop-publishers mt-3">
                     <div class="product-filter">
-                        <h6 class="mb-20">Publishers</h6>
+                        <h6 class="mb-20">Category</h6>
                         <select class="_filter form-select form-select-sm" name="_publisher"
                         onchange="getData()">
                             <option value="" selected>All</option>
@@ -30,9 +30,9 @@
                             <option value="marjin kiri">Marjin Kiri</option>
                         </select>
                     </div>
-                </div>
+                </div> --}}
                 <!-- Product Filter -->
-                <div class="shop-widget widget-color">
+                {{-- <div class="shop-widget widget-color">
                     <div class="product-filter">
                         <h6 class="mb-20">Color</h6>
                         <ul class="widget-nav-list">
@@ -44,16 +44,15 @@
                             <li><a href="#"><span class="swatch-color yellow"></span></a></li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
                 <!-- Product Filter -->
                 <div class="shop-widget">
                     <div class="product-filter widget-price">
                         <h6 class="mb-20">Price</h6>
                         <ul class="widget-nav-list">
-                            <li><a href="#">Under IDR 100k</a></li>
-                            <li><a href="#">IDR 100-500k</a></li>
-                            <li><a href="#">IDR 501-1000K</a></li>
-                            <li><a href="#">Above IDR 1000k</a></li>
+                            <li><a href="#">Under IDR 50k</a></li>
+                            <li><a href="#">IDR 51-100k</a></li>
+                            <li><a href="#">IDR 101-500K</a></li>
                         </ul>
                     </div>
                 </div>
